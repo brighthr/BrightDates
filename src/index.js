@@ -37,11 +37,11 @@ const brightDates = (function brightDates() {
 		return userTimezone;
 	}
 
-	function date(dateInput = new Date(), timezone = userTimezone) {
-		let dateToParse = dateInput;
+	function date(dateInput, timezone = userTimezone) {
+		let dateToParse = dateInput || new Date();
 
 		if (dateInput instanceof Date) {
-			dateToParse = `${dateInput.getFullYear()}-${pad(dateInput.getMonth() + 1)}-${pad(dateInput.getDate())}`;
+			dateToParse = `${dateToParse.getFullYear()}-${pad(dateToParse.getMonth() + 1)}-${pad(dateToParse.getDate())}`;
 		}
 
 		return moment.tz(dateToParse, formats.api, timezone);
@@ -90,17 +90,13 @@ const brightDates = (function brightDates() {
 	}
 
 	function momentToNativeDate(momentInput) {
-		const returnDate = new Date(
-			momentInput.year(),
-			momentInput.month(),
-			momentInput.date()
+		return new Date(
+			Date.UTC(
+				momentInput.year(),
+				momentInput.month(),
+				momentInput.date()
+			)
 		);
-
-		returnDate.setHours(0);
-		returnDate.setMinutes(0);
-		returnDate.setSeconds(0);
-
-		return returnDate;
 	}
 
 	function momentToNativeDateTime(momentInput) {
