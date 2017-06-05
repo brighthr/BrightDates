@@ -1,13 +1,13 @@
 const { test } = require('ava');
 
-const dateUtils = require('../src');
+const brightDates = require('../src');
 
 test('"getTimezone" should be "Europe/London" by default', t => {
-	t.is(dateUtils.getTimezone(), 'Europe/London');
+	t.is(brightDates.getTimezone(), 'Europe/London');
 });
 
 test('"setTimezone" should update the user timezone', t => {
-	t.is(dateUtils.getTimezone(), 'Europe/London');
-	dateUtils.setTimezone('Canada/Eastern');
-	t.is(dateUtils.getTimezone(), 'Canada/Eastern');
+	t.is(brightDates.getTimezone(), 'Europe/London');
+	brightDates.setTimezone('Canada/Eastern');
+	t.is(brightDates.getTimezone(), 'Canada/Eastern');
 });

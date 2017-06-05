@@ -14,7 +14,7 @@ function pad(str) {
 	return `0${str}`.slice(-2);
 }
 
-const dateUtils = (function dateUtils() {
+const brightDates = (function brightDates() {
 	let userTimezone = 'Europe/London';
 	moment.tz.setDefault(userTimezone);
 
@@ -92,4 +92,4 @@ const dateUtils = (function dateUtils() {
 	};
 })();
 
-module.exports = dateUtils;
+module.exports = brightDates;

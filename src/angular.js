@@ -1,13 +1,13 @@
 import angular from 'angular';
 
-import dateUtils from './index';
+import brightDates from './index';
 
 angular
-	.module('angularDateUtils', [])
+	.module('angularbrightDates', [])
 	.filter('dateFormat', () => (value, format, timezone) =>
-		dateUtils.formatDate(value, format, timezone));
+		brightDates.formatDate(value, format, timezone));
 
 angular
-	.module('angularDateUtils', [])
+	.module('angularbrightDates', [])
 	.filter('dateTimeFormat', () => (value, format, timezone) =>
-		dateUtils.formatDateTime(value, format, timezone));
+		brightDates.formatDateTime(value, format, timezone));
