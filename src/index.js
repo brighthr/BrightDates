@@ -38,13 +38,19 @@ const dateUtils = (function dateUtils() {
 		return moment.tz(dateToParse, formats.short, timezone);
 	}
 
-	function dateTime(dateInput, timezone = userTimezone) {
-		return moment.tz(dateInput, timezone);
+	function dateTime(dateTimeInput, timezone = userTimezone) {
+		return moment.tz(dateTimeInput, timezone);
 	}
 
 	function dateAndTime(dateInput, time, timezone = userTimezone) {
+		let dateToParse = dateInput;
+
+		if (dateInput instanceof Date) {
+			dateToParse = `${dateInput.getFullYear()}-${pad(dateInput.getMonth() + 1)}-${pad(dateInput.getDate())}`;
+		}
+
 		return moment.tz(
-			`${moment(dateInput).format(formats.short)}T${time}`,
+			`${moment(dateToParse, formats.short).format(formats.short)}T${time}`,
 			`${formats.short}T${formats.time}`,
 			timezone
 		);
