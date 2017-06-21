@@ -14,6 +14,14 @@ function pad(str) {
 	return `0${str}`.slice(-2);
 }
 
+function arrify(val) {
+	return Array.isArray(val) ? val : [val];
+}
+
+function joinFormats(selectedFormat) {
+	return arrify(selectedFormat).map(format => formats[format]).join(' ');
+}
+
 const brightDates = (function brightDates() {
 	let userTimezone = 'Europe/London';
 	moment.tz.setDefault(userTimezone);
@@ -61,7 +69,7 @@ const brightDates = (function brightDates() {
 	}
 
 	function formatDate(dateInput, formatInput, tz) {
-		const selectedFormat = formats[formatInput] || null;
+		const selectedFormat = joinFormats(formatInput) || null;
 
 		if (formatInput && !selectedFormat) {
 			throw new Error(`Unrecognised format: ${formatInput}`);
@@ -71,7 +79,7 @@ const brightDates = (function brightDates() {
 	}
 
 	function formatDateTime(dateInput, formatInput, tz) {
-		const selectedFormat = formats[formatInput] || null;
+		const selectedFormat = joinFormats(formatInput) || null;
 
 		if (formatInput && !selectedFormat) {
 			throw new Error(`Unrecognised format: ${formatInput}`);

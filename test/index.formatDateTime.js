@@ -183,3 +183,16 @@ test('"format" should support "offset" format with a timezone overide', t => {
 		'-04:00'
 	);
 });
+
+test('"format" should support an array of formats', t => {
+	t.is(brightDates.getTimezone(), 'Europe/London');
+
+	t.is(
+		brightDates.formatDateTime(baseDateTime, ['time', 'offset']),
+		'06:00 +00:00'
+	);
+	t.is(
+		brightDates.formatDateTime(baseDateTimeDST, ['time', 'offset']),
+		'07:00 +01:00'
+	);
+});
