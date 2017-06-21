@@ -9,7 +9,7 @@ test.beforeEach(() => {
 	brightDates.setTimezone('Europe/London');
 });
 
-test('"format" should throw on unrecognised formats', t => {
+test('"formatDateTime" should throw on unrecognised formats', t => {
 	t.is(brightDates.getTimezone(), 'Europe/London');
 
 	t.throws(() => {
@@ -17,7 +17,7 @@ test('"format" should throw on unrecognised formats', t => {
 	});
 });
 
-test('"format" should support no format', t => {
+test('"formatDateTime" should support no format', t => {
 	t.is(brightDates.getTimezone(), 'Europe/London');
 
 	t.is(brightDates.formatDateTime(baseDateTime), '2017-02-17T06:00:00Z');
@@ -27,7 +27,7 @@ test('"format" should support no format', t => {
 	);
 });
 
-test('"format" should support no format with a timezone overide', t => {
+test('"formatDateTime" should support no format with a timezone overide', t => {
 	t.is(brightDates.getTimezone(), 'Europe/London');
 
 	t.is(
@@ -40,14 +40,14 @@ test('"format" should support no format with a timezone overide', t => {
 	);
 });
 
-test('"format" should support "short" format', t => {
+test('"formatDateTime" should support "short" format', t => {
 	t.is(brightDates.getTimezone(), 'Europe/London');
 
 	t.is(brightDates.formatDateTime(baseDateTime, 'short'), '2017-02-17');
 	t.is(brightDates.formatDateTime(baseDateTimeDST, 'short'), '2017-06-17');
 });
 
-test('"format" should support "short" format with a timezone overide', t => {
+test('"formatDateTime" should support "short" format with a timezone overide', t => {
 	t.is(brightDates.getTimezone(), 'Europe/London');
 
 	t.is(
@@ -60,7 +60,7 @@ test('"format" should support "short" format with a timezone overide', t => {
 	);
 });
 
-test('"format" should support "friendly" format', t => {
+test('"formatDateTime" should support "friendly" format', t => {
 	t.is(brightDates.getTimezone(), 'Europe/London');
 
 	t.is(
@@ -73,7 +73,7 @@ test('"format" should support "friendly" format', t => {
 	);
 });
 
-test('"format" should support "friendly" format with a timezone overide', t => {
+test('"formatDateTime" should support "friendly" format with a timezone overide', t => {
 	t.is(brightDates.getTimezone(), 'Europe/London');
 
 	t.is(
@@ -90,14 +90,14 @@ test('"format" should support "friendly" format with a timezone overide', t => {
 	);
 });
 
-test('"format" should support "time" format', t => {
+test('"formatDateTime" should support "time" format', t => {
 	t.is(brightDates.getTimezone(), 'Europe/London');
 
 	t.is(brightDates.formatDateTime(baseDateTime, 'time'), '06:00');
 	t.is(brightDates.formatDateTime(baseDateTimeDST, 'time'), '07:00');
 });
 
-test('"format" should support "time" format with a timezone overide', t => {
+test('"formatDateTime" should support "time" format with a timezone overide', t => {
 	t.is(brightDates.getTimezone(), 'Europe/London');
 
 	t.is(
@@ -110,7 +110,7 @@ test('"format" should support "time" format with a timezone overide', t => {
 	);
 });
 
-test('"format" should support "datetime" format', t => {
+test('"formatDateTime" should support "datetime" format', t => {
 	t.is(brightDates.getTimezone(), 'Europe/London');
 
 	t.is(
@@ -123,7 +123,7 @@ test('"format" should support "datetime" format', t => {
 	);
 });
 
-test('"format" should support "datetime" format with a timezone overide', t => {
+test('"formatDateTime" should support "datetime" format with a timezone overide', t => {
 	t.is(brightDates.getTimezone(), 'Europe/London');
 
 	t.is(
@@ -140,14 +140,14 @@ test('"format" should support "datetime" format with a timezone overide', t => {
 	);
 });
 
-test('"format" should support "timezone" format', t => {
+test('"formatDateTime" should support "timezone" format', t => {
 	t.is(brightDates.getTimezone(), 'Europe/London');
 
 	t.is(brightDates.formatDateTime(baseDateTime, 'timezone'), 'GMT');
 	t.is(brightDates.formatDateTime(baseDateTimeDST, 'timezone'), 'BST');
 });
 
-test('"format" should support "timezone" format with a timezone overide', t => {
+test('"formatDateTime" should support "timezone" format with a timezone overide', t => {
 	t.is(brightDates.getTimezone(), 'Europe/London');
 
 	t.is(
@@ -164,14 +164,14 @@ test('"format" should support "timezone" format with a timezone overide', t => {
 	);
 });
 
-test('"format" should support "offset" format', t => {
+test('"formatDateTime" should support "offset" format', t => {
 	t.is(brightDates.getTimezone(), 'Europe/London');
 
 	t.is(brightDates.formatDateTime(baseDateTime, 'offset'), '+00:00');
 	t.is(brightDates.formatDateTime(baseDateTimeDST, 'offset'), '+01:00');
 });
 
-test('"format" should support "offset" format with a timezone overide', t => {
+test('"formatDateTime" should support "offset" format with a timezone overide', t => {
 	t.is(brightDates.getTimezone(), 'Europe/London');
 
 	t.is(
@@ -184,7 +184,7 @@ test('"format" should support "offset" format with a timezone overide', t => {
 	);
 });
 
-test('"format" should support an array of formats', t => {
+test('"formatDateTime" should support an array of formats', t => {
 	t.is(brightDates.getTimezone(), 'Europe/London');
 
 	t.is(
