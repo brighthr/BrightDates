@@ -28,7 +28,7 @@ const brightDates = (function brightDates() {
 		return userTimezone;
 	}
 
-	function date(dateInput, timezone = userTimezone) {
+	function date(dateInput = new Date(), timezone = userTimezone) {
 		let dateToParse = dateInput;
 
 		if (dateInput instanceof Date) {
@@ -80,6 +80,31 @@ const brightDates = (function brightDates() {
 		return dateTime(dateInput, tz).format(selectedFormat);
 	}
 
+	function momentToNativeDate(momentInput) {
+		const returnDate = new Date(
+			momentInput.year(),
+			momentInput.month(),
+			momentInput.date()
+		);
+
+		returnDate.setHours(0);
+		returnDate.setMinutes(0);
+		returnDate.setSeconds(0);
+
+		return returnDate;
+	}
+
+	function momentToNativeDateTime(momentInput) {
+		return new Date(
+			momentInput.year(),
+			momentInput.month(),
+			momentInput.date(),
+			momentInput.hours(),
+			momentInput.minutes(),
+			momentInput.seconds()
+		);
+	}
+
 	return {
 		setTimezone,
 		getTimezone,
@@ -88,6 +113,8 @@ const brightDates = (function brightDates() {
 		dateAndTime,
 		formatDate,
 		formatDateTime,
+		momentToNativeDate,
+		momentToNativeDateTime,
 		today
 	};
 })();
