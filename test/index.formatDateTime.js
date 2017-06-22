@@ -43,8 +43,8 @@ test('"formatDateTime" should support no format with a timezone overide', t => {
 test('"formatDateTime" should support "short" format', t => {
 	t.is(brightDates.getTimezone(), 'Europe/London');
 
-	t.is(brightDates.formatDateTime(baseDateTime, 'short'), '2017-02-17');
-	t.is(brightDates.formatDateTime(baseDateTimeDST, 'short'), '2017-06-17');
+	t.is(brightDates.formatDateTime(baseDateTime, 'short'), '17/02/2017');
+	t.is(brightDates.formatDateTime(baseDateTimeDST, 'short'), '17/06/2017');
 });
 
 test('"formatDateTime" should support "short" format with a timezone overide', t => {
@@ -52,10 +52,30 @@ test('"formatDateTime" should support "short" format with a timezone overide', t
 
 	t.is(
 		brightDates.formatDateTime(baseDateTime, 'short', 'Canada/Eastern'),
-		'2017-02-17'
+		'17/02/2017'
 	);
 	t.is(
 		brightDates.formatDateTime(baseDateTimeDST, 'short', 'Canada/Eastern'),
+		'17/06/2017'
+	);
+});
+
+test('"formatDateTime" should support "api" format', t => {
+	t.is(brightDates.getTimezone(), 'Europe/London');
+
+	t.is(brightDates.formatDateTime(baseDateTime, 'api'), '2017-02-17');
+	t.is(brightDates.formatDateTime(baseDateTimeDST, 'api'), '2017-06-17');
+});
+
+test('"formatDateTime" should support "api" format with a timezone overide', t => {
+	t.is(brightDates.getTimezone(), 'Europe/London');
+
+	t.is(
+		brightDates.formatDateTime(baseDateTime, 'api', 'Canada/Eastern'),
+		'2017-02-17'
+	);
+	t.is(
+		brightDates.formatDateTime(baseDateTimeDST, 'api', 'Canada/Eastern'),
 		'2017-06-17'
 	);
 });
@@ -65,11 +85,11 @@ test('"formatDateTime" should support "friendly" format', t => {
 
 	t.is(
 		brightDates.formatDateTime(baseDateTime, 'friendly'),
-		'Fri 17th Feb 2017'
+		'Fri 17 February 2017'
 	);
 	t.is(
 		brightDates.formatDateTime(baseDateTimeDST, 'friendly'),
-		'Sat 17th Jun 2017'
+		'Sat 17 June 2017'
 	);
 });
 
@@ -78,7 +98,7 @@ test('"formatDateTime" should support "friendly" format with a timezone overide'
 
 	t.is(
 		brightDates.formatDateTime(baseDateTime, 'friendly', 'Canada/Eastern'),
-		'Fri 17th Feb 2017'
+		'Fri 17 February 2017'
 	);
 	t.is(
 		brightDates.formatDateTime(
@@ -86,7 +106,41 @@ test('"formatDateTime" should support "friendly" format with a timezone overide'
 			'friendly',
 			'Canada/Eastern'
 		),
-		'Sat 17th Jun 2017'
+		'Sat 17 June 2017'
+	);
+});
+
+test('"formatDateTime" should support "friendlyShort" format', t => {
+	t.is(brightDates.getTimezone(), 'Europe/London');
+
+	t.is(
+		brightDates.formatDateTime(baseDateTime, 'friendlyShort'),
+		'Fri 17 Feb'
+	);
+	t.is(
+		brightDates.formatDateTime(baseDateTimeDST, 'friendlyShort'),
+		'Sat 17 Jun'
+	);
+});
+
+test('"formatDateTime" should support "friendlyShort" format with a timezone overide', t => {
+	t.is(brightDates.getTimezone(), 'Europe/London');
+
+	t.is(
+		brightDates.formatDateTime(
+			baseDateTime,
+			'friendlyShort',
+			'Canada/Eastern'
+		),
+		'Fri 17 Feb'
+	);
+	t.is(
+		brightDates.formatDateTime(
+			baseDateTimeDST,
+			'friendlyShort',
+			'Canada/Eastern'
+		),
+		'Sat 17 Jun'
 	);
 });
 
@@ -115,11 +169,11 @@ test('"formatDateTime" should support "datetime" format', t => {
 
 	t.is(
 		brightDates.formatDateTime(baseDateTime, 'datetime'),
-		'2017-02-17 06:00'
+		'17/02/2017 06:00'
 	);
 	t.is(
 		brightDates.formatDateTime(baseDateTimeDST, 'datetime'),
-		'2017-06-17 07:00'
+		'17/06/2017 07:00'
 	);
 });
 
@@ -128,7 +182,7 @@ test('"formatDateTime" should support "datetime" format with a timezone overide'
 
 	t.is(
 		brightDates.formatDateTime(baseDateTime, 'datetime', 'Canada/Eastern'),
-		'2017-02-17 01:00'
+		'17/02/2017 01:00'
 	);
 	t.is(
 		brightDates.formatDateTime(
@@ -136,7 +190,7 @@ test('"formatDateTime" should support "datetime" format with a timezone overide'
 			'datetime',
 			'Canada/Eastern'
 		),
-		'2017-06-17 02:00'
+		'17/06/2017 02:00'
 	);
 });
 

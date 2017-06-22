@@ -1,13 +1,14 @@
 import moment from 'moment-timezone';
 
 const formats = {
-	short: 'YYYY-MM-DD',
-	friendly: 'ddd Do MMM YYYY',
-	friendlyShort: 'ddd Do MMM',
+	api: 'YYYY-MM-DD',
+	short: 'DD/MM/YYYY',
+	friendly: 'ddd DD MMMM YYYY',
+	friendlyShort: 'ddd DD MMM',
 	time: 'hh:mm',
 	timezone: 'zz',
 	offset: 'Z',
-	datetime: 'YYYY-MM-DD hh:mm'
+	datetime: 'DD/MM/YYYY hh:mm'
 };
 
 function pad(str) {
@@ -43,7 +44,7 @@ const brightDates = (function brightDates() {
 			dateToParse = `${dateInput.getFullYear()}-${pad(dateInput.getMonth() + 1)}-${pad(dateInput.getDate())}`;
 		}
 
-		return moment.tz(dateToParse, formats.short, timezone);
+		return moment.tz(dateToParse, formats.api, timezone);
 	}
 
 	function dateTime(dateTimeInput, timezone = userTimezone) {
@@ -58,8 +59,8 @@ const brightDates = (function brightDates() {
 		}
 
 		return moment.tz(
-			`${moment(dateToParse, formats.short).format(formats.short)}T${time}`,
-			`${formats.short}T${formats.time}`,
+			`${moment(dateToParse, formats.api).format(formats.api)}T${time}`,
+			`${formats.api}T${formats.time}`,
 			timezone
 		);
 	}
@@ -75,7 +76,7 @@ const brightDates = (function brightDates() {
 			throw new Error(`Unrecognised format: ${formatInput}`);
 		}
 
-		return date(dateInput, tz).format(selectedFormat);
+		return date(dateInput, tz).format(selectedFormat || formats.api);
 	}
 
 	function formatDateTime(dateInput, formatInput, tz) {
