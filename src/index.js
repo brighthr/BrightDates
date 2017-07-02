@@ -90,6 +90,20 @@ const brightDates = (function brightDates() {
 	}
 
 	function momentToNativeDate(momentInput) {
+		const returnDate = new Date(
+			momentInput.year(),
+			momentInput.month(),
+			momentInput.date()
+		);
+
+		returnDate.setHours(0);
+		returnDate.setMinutes(0);
+		returnDate.setSeconds(0);
+
+		return returnDate;
+	}
+
+	function momentToNativeUTCDate(momentInput) {
 		return new Date(
 			Date.UTC(
 				momentInput.year(),
@@ -120,6 +134,7 @@ const brightDates = (function brightDates() {
 		formatDateTime,
 		momentToNativeDate,
 		momentToNativeDateTime,
+		momentToNativeUTCDate,
 		today
 	};
 })();
