@@ -40,6 +40,10 @@ const brightDates = (function brightDates() {
 	function date(dateInput, timezone = userTimezone) {
 		let dateToParse = dateInput || new Date();
 
+		if (Array.isArray(dateInput)) {
+			return moment.tz(dateInput.slice(0, 3), timezone);
+		}
+
 		if (dateInput instanceof Date) {
 			dateToParse = `${dateToParse.getFullYear()}-${pad(dateToParse.getMonth() + 1)}-${pad(dateToParse.getDate())}`;
 		}
@@ -49,24 +53,6 @@ const brightDates = (function brightDates() {
 
 	function dateTime(dateTimeInput, timezone = userTimezone) {
 		return moment.tz(dateTimeInput, timezone);
-	}
-
-	function dateAndTime(dateInput, time, timezone = userTimezone) {
-		let dateToParse = dateInput;
-
-		if (dateInput instanceof Date) {
-			dateToParse = `${dateInput.getFullYear()}-${pad(dateInput.getMonth() + 1)}-${pad(dateInput.getDate())}`;
-		}
-
-		return moment.tz(
-			`${moment(dateToParse, formats.api).format(formats.api)}T${time}`,
-			`${formats.api}T${formats.time}`,
-			timezone
-		);
-	}
-
-	function today(tz = userTimezone) {
-		return moment.tz(tz);
 	}
 
 	function formatDate(dateInput, formatInput, tz) {
@@ -87,6 +73,18 @@ const brightDates = (function brightDates() {
 		}
 
 		return dateTime(dateInput, tz).format(selectedFormat);
+	}
+
+	function dateAndTime(dateInput, time, timezone = userTimezone) {
+		return moment.tz(
+			`${formatDate(dateInput, 'api')}T${time}`,
+			`${formats.api}T${formats.time}`,
+			timezone
+		);
+	}
+
+	function today(tz = userTimezone) {
+		return moment.tz(tz);
 	}
 
 	function momentToNativeDate(momentInput) {

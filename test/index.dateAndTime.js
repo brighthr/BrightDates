@@ -66,3 +66,19 @@ test('"dateTime" should accept a timezone overide', t => {
 		'2017-06-17T03:43:00-04:00'
 	);
 });
+
+test('"dateTime" should handle arrays', t => {
+	t.is(brightDates.getTimezone(), 'Europe/London');
+
+	const arrayDate = [2017, 1, 17, 10, 10, 10];
+	const arrayDateDST = [2017, 5, 17, 10, 10, 10];
+
+	t.is(
+		brightDates.dateAndTime(arrayDate, time).format(),
+		'2017-02-17T03:43:00Z'
+	);
+	t.is(
+		brightDates.dateAndTime(arrayDateDST, time).format(),
+		'2017-06-17T03:43:00+01:00'
+	);
+});

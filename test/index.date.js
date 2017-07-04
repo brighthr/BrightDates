@@ -40,6 +40,16 @@ test('"date" should support native dates', t => {
 	t.is(brightDates.date(nativeDateDST).format(), '2017-06-17T00:00:00+01:00');
 });
 
+test('"date" should support arrays', t => {
+	t.is(brightDates.getTimezone(), 'Europe/London');
+
+	const arrayDate = [2017, 1, 17, 10, 10, 10];
+	const arrayDateDST = [2017, 5, 17, 10, 10, 10];
+
+	t.is(brightDates.date(arrayDate).format(), '2017-02-17T00:00:00Z');
+	t.is(brightDates.date(arrayDateDST).format(), '2017-06-17T00:00:00+01:00');
+});
+
 test('"date" should accept a timezone overide', t => {
 	t.is(brightDates.getTimezone(), 'Europe/London');
 	t.is(
