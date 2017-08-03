@@ -12,7 +12,7 @@ test.beforeEach(() => {
 
 test('"date" should default to today when no date is specified', t => {
 	t.is(brightDates.getTimezone(), 'Europe/London');
-	const today = moment.tz('Europe/London').format();
+	const today = moment.tz('Europe/London').startOf('day').format();
 
 	t.is(brightDates.date().format(), today);
 });

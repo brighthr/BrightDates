@@ -4,7 +4,7 @@ import brightDates from './index';
 
 angular
 	.module('brightApp.dateTimeServiceNew', [])
-	.factory('dateTimeServiceNew', brightDates);
+	.factory('dateTimeServiceNew', () => brightDates);
 
 angular
 	.module('brightApp.angularbrightDates', [])

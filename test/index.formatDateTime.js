@@ -85,11 +85,11 @@ test('"formatDateTime" should support "friendly" format', t => {
 
 	t.is(
 		brightDates.formatDateTime(baseDateTime, 'friendly'),
-		'Fri 17 February 2017'
+		'Friday 17 February 2017'
 	);
 	t.is(
 		brightDates.formatDateTime(baseDateTimeDST, 'friendly'),
-		'Sat 17 June 2017'
+		'Saturday 17 June 2017'
 	);
 });
 
@@ -98,7 +98,7 @@ test('"formatDateTime" should support "friendly" format with a timezone overide'
 
 	t.is(
 		brightDates.formatDateTime(baseDateTime, 'friendly', 'Canada/Eastern'),
-		'Fri 17 February 2017'
+		'Friday 17 February 2017'
 	);
 	t.is(
 		brightDates.formatDateTime(
@@ -106,7 +106,7 @@ test('"formatDateTime" should support "friendly" format with a timezone overide'
 			'friendly',
 			'Canada/Eastern'
 		),
-		'Sat 17 June 2017'
+		'Saturday 17 June 2017'
 	);
 });
 

@@ -10,7 +10,9 @@ var _index2 = _interopRequireDefault(_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_angular2.default.module('brightApp.dateTimeServiceNew', []).factory('dateTimeServiceNew', _index2.default);
+_angular2.default.module('brightApp.dateTimeServiceNew', []).factory('dateTimeServiceNew', function () {
+	return _index2.default;
+});
 
 _angular2.default.module('brightApp.angularbrightDates', []).filter('dateFormat', function () {
 	return function (value, format, timezone) {

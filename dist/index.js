@@ -9,8 +9,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var formats = {
 	api: 'YYYY-MM-DD',
 	short: 'DD/MM/YYYY',
-	friendly: 'ddd DD MMMM YYYY',
+	friendly: 'dddd DD MMMM YYYY',
 	friendlyShort: 'ddd DD MMM',
+	friendlyShortWithYear: 'DD MMM YYYY',
 	time: 'hh:mm',
 	timezone: 'zz',
 	offset: 'Z',
@@ -33,7 +34,7 @@ function joinFormats(selectedFormat) {
 
 var brightDates = function brightDates() {
 	var userTimezone = 'Europe/London';
-	_momentTimezone2.default.tz.setDefault(userTimezone);
+	// moment.tz.setDefault(userTimezone);
 
 	function setTimezone(tz) {
 		userTimezone = tz;
@@ -54,7 +55,7 @@ var brightDates = function brightDates() {
 			return _momentTimezone2.default.tz(dateInput.slice(0, 3), timezone);
 		}
 
-		if (dateInput instanceof Date) {
+		if (dateToParse instanceof Date) {
 			dateToParse = dateToParse.getFullYear() + '-' + pad(dateToParse.getMonth() + 1) + '-' + pad(dateToParse.getDate());
 		}
 
@@ -90,17 +91,21 @@ var brightDates = function brightDates() {
 	function dateAndTime(dateInput, time) {
 		var timezone = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : userTimezone;
 
-		return _momentTimezone2.default.tz(formatDate(dateInput, 'api') + 'T' + time, formats.api + 'T' + formats.time, timezone);
+		var dateToParse = dateInput;
+
+		if (Array.isArray(dateInput)) {
+			dateToParse = (0, _momentTimezone2.default)(dateInput.slice(0, 3)).format(formats.api);
+		}
+
+		if (dateToParse instanceof Date) {
+			dateToParse = dateInput.getFullYear() + '-' + pad(dateInput.getMonth() + 1) + '-' + pad(dateInput.getDate());
+		}
+
+		return _momentTimezone2.default.tz((0, _momentTimezone2.default)(dateToParse, formats.api).format(formats.api) + 'T' + time, formats.api + 'T' + formats.time, timezone);
 	}
 
 	function momentToNativeDate(momentInput) {
-		var returnDate = new Date(momentInput.year(), momentInput.month(), momentInput.date());
-
-		returnDate.setHours(0);
-		returnDate.setMinutes(0);
-		returnDate.setSeconds(0);
-
-		return returnDate;
+		return new Date(momentInput.year(), momentInput.month(), momentInput.date());
 	}
 
 	function momentToNativeUTCDate(momentInput) {

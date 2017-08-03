@@ -3,8 +3,9 @@ import moment from 'moment-timezone';
 const formats = {
 	api: 'YYYY-MM-DD',
 	short: 'DD/MM/YYYY',
-	friendly: 'ddd DD MMMM YYYY',
+	friendly: 'dddd DD MMMM YYYY',
 	friendlyShort: 'ddd DD MMM',
+	friendlyShortWithYear: 'DD MMM YYYY',
 	time: 'hh:mm',
 	timezone: 'zz',
 	offset: 'Z',
@@ -25,7 +26,7 @@ function joinFormats(selectedFormat) {
 
 const brightDates = (function brightDates() {
 	let userTimezone = 'Europe/London';
-	moment.tz.setDefault(userTimezone);
+	// moment.tz.setDefault(userTimezone);
 
 	function setTimezone(tz) {
 		userTimezone = tz;
@@ -44,7 +45,7 @@ const brightDates = (function brightDates() {
 			return moment.tz(dateInput.slice(0, 3), timezone);
 		}
 
-		if (dateInput instanceof Date) {
+		if (dateToParse instanceof Date) {
 			dateToParse = `${dateToParse.getFullYear()}-${pad(dateToParse.getMonth() + 1)}-${pad(dateToParse.getDate())}`;
 		}
 
@@ -76,25 +77,29 @@ const brightDates = (function brightDates() {
 	}
 
 	function dateAndTime(dateInput, time, timezone = userTimezone) {
+		let dateToParse = dateInput;
+
+		if (Array.isArray(dateInput)) {
+			dateToParse = moment(dateInput.slice(0, 3)).format(formats.api);
+		}
+
+		if (dateToParse instanceof Date) {
+			dateToParse = `${dateInput.getFullYear()}-${pad(dateInput.getMonth() + 1)}-${pad(dateInput.getDate())}`;
+		}
+
 		return moment.tz(
-			`${formatDate(dateInput, 'api')}T${time}`,
+			`${moment(dateToParse, formats.api).format(formats.api)}T${time}`,
 			`${formats.api}T${formats.time}`,
 			timezone
 		);
 	}
 
 	function momentToNativeDate(momentInput) {
-		const returnDate = new Date(
+		return new Date(
 			momentInput.year(),
 			momentInput.month(),
 			momentInput.date()
 		);
-
-		returnDate.setHours(0);
-		returnDate.setMinutes(0);
-		returnDate.setSeconds(0);
-
-		return returnDate;
 	}
 
 	function momentToNativeUTCDate(momentInput) {
