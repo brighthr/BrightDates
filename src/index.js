@@ -83,10 +83,6 @@ const brightDates = (function brightDates() {
 		);
 	}
 
-	function today(tz = userTimezone) {
-		return moment.tz(tz);
-	}
-
 	function momentToNativeDate(momentInput) {
 		const returnDate = new Date(
 			momentInput.year(),
@@ -132,8 +128,7 @@ const brightDates = (function brightDates() {
 		formatDateTime,
 		momentToNativeDate,
 		momentToNativeDateTime,
-		momentToNativeUTCDate,
-		today
+		momentToNativeUTCDate
 	};
 })();
 

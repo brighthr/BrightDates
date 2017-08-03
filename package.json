@@ -6,16 +6,15 @@
   "scripts": {
     "test": "eslint . && nyc -r html ava -v",
     "test:watch": "ava -wv",
-    "compile": "babel -d dist/ src/",
+    "compile": "BABEL_ENV=production babel -d dist/ src/",
     "prepublish": "npm run compile"
   },
   "author": "BrightHR",
   "license": "ISC",
   "ava": {
     "require": [
-      "babel-register"
-    ],
-    "babel": "inherit"
+      "babel-core/register"
+    ]
   },
   "devDependencies": {
     "ava": "latest",

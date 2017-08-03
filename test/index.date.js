@@ -1,4 +1,5 @@
 const { test } = require('ava');
+const moment = require('moment');
 
 const brightDates = require('../src');
 
@@ -7,6 +8,13 @@ const baseDateTimeDST = '2017-06-17T07:00:00-06:00';
 
 test.beforeEach(() => {
 	brightDates.setTimezone('Europe/London');
+});
+
+test('"date" should default to today when no date is specified', t => {
+	t.is(brightDates.getTimezone(), 'Europe/London');
+	const today = moment.tz('Europe/London').format();
+
+	t.is(brightDates.date().format(), today);
 });
 
 test('"date" should convert to the default timezone', t => {
