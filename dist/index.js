@@ -15,7 +15,8 @@ var formats = {
 	time: 'hh:mm',
 	timezone: 'zz',
 	offset: 'Z',
-	datetime: 'DD/MM/YYYY hh:mm'
+	datetime: 'DD/MM/YYYY hh:mm',
+	year: 'YYYY'
 };
 
 function pad(str) {
