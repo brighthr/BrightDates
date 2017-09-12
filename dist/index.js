@@ -40,7 +40,7 @@ var brightDates = function brightDates() {
 	function setTimezone(tz) {
 		userTimezone = tz;
 
-		_momentTimezone2.default.tz.setDefault(tz);
+		// moment.tz.setDefault(tz);
 	}
 
 	function getTimezone() {
@@ -50,7 +50,7 @@ var brightDates = function brightDates() {
 	function date(dateInput) {
 		var timezone = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : userTimezone;
 
-		var dateToParse = dateInput || new Date();
+		var dateToParse = dateInput || _momentTimezone2.default.tz(timezone).format(formats.api);
 
 		if (Array.isArray(dateInput)) {
 			return _momentTimezone2.default.tz(dateInput.slice(0, 3), timezone);

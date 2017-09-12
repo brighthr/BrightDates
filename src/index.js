@@ -32,7 +32,7 @@ const brightDates = (function brightDates() {
 	function setTimezone(tz) {
 		userTimezone = tz;
 
-		moment.tz.setDefault(tz);
+		// moment.tz.setDefault(tz);
 	}
 
 	function getTimezone() {
@@ -40,7 +40,7 @@ const brightDates = (function brightDates() {
 	}
 
 	function date(dateInput, timezone = userTimezone) {
-		let dateToParse = dateInput || new Date();
+		let dateToParse = dateInput || moment.tz(timezone).format(formats.api);
 
 		if (Array.isArray(dateInput)) {
 			return moment.tz(dateInput.slice(0, 3), timezone);

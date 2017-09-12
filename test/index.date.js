@@ -58,6 +58,16 @@ test('"date" should support arrays', t => {
 	t.is(brightDates.date(arrayDateDST).format(), '2017-06-17T00:00:00+01:00');
 });
 
+test('"date" should support partial arrays', t => {
+	t.is(brightDates.getTimezone(), 'Europe/London');
+
+	const arrayDate = [2017, 1];
+	const arrayDateDST = [2017, 5];
+
+	t.is(brightDates.date(arrayDate).format(), '2017-02-01T00:00:00Z');
+	t.is(brightDates.date(arrayDateDST).format(), '2017-06-01T00:00:00+01:00');
+});
+
 test('"date" should accept a timezone overide', t => {
 	t.is(brightDates.getTimezone(), 'Europe/London');
 	t.is(
