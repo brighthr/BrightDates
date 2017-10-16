@@ -12,7 +12,7 @@ var formats = {
 	friendly: 'dddd DD MMMM YYYY',
 	friendlyShort: 'ddd DD MMM',
 	friendlyShortWithYear: 'DD MMM YYYY',
-	time: 'hh:mm',
+	time: 'HH:mm',
 	timezone: 'zz',
 	offset: 'Z',
 	datetime: 'DD/MM/YYYY hh:mm',
