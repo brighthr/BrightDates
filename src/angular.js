@@ -15,9 +15,11 @@ angular
 angular
 	.module('brightApp.dateTimeServiceNew.dateFormatFilter', [])
 	.filter('dateFormat', () => (value, format, timezone) =>
-		brightDates.formatDate(value, format, timezone));
+		brightDates.formatDate(value, format, timezone)
+	);
 
 angular
 	.module('brightApp.dateTimeServiceNew.dateTimeFormatFilter', [])
 	.filter('dateTimeFormat', () => (value, format, timezone) =>
-		brightDates.formatDateTime(value, format, timezone));
+		brightDates.formatDateTime(value, format, timezone)
+	);
