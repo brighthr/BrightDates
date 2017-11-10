@@ -8,6 +8,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var formats = {
 	api: 'YYYY-MM-DD',
+	apiOffsetDateTime: 'YYYY-MM-DDTHH:mm:ssZ',
 	short: 'DD/MM/YYYY',
 	friendly: 'dddd DD MMMM YYYY',
 	friendlyShort: 'ddd DD MMM',
