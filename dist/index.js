@@ -69,6 +69,12 @@ var brightDates = function brightDates() {
 		return _momentTimezone2.default.tz(dateTimeInput, timezone);
 	}
 
+	function time(timeInput) {
+		var timezone = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : userTimezone;
+
+		return _momentTimezone2.default.tz(timeInput, 'HH:mm', timezone);
+	}
+
 	function formatDate(dateInput, formatInput, tz) {
 		var selectedFormat = joinFormats(formatInput) || null;
 
@@ -89,7 +95,7 @@ var brightDates = function brightDates() {
 		return dateTime(dateInput, tz).format(selectedFormat);
 	}
 
-	function dateAndTime(dateInput, time) {
+	function dateAndTime(dateInput, timeInput) {
 		var timezone = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : userTimezone;
 
 		var dateToParse = dateInput;
@@ -102,7 +108,7 @@ var brightDates = function brightDates() {
 			dateToParse = dateInput.getFullYear() + '-' + pad(dateInput.getMonth() + 1) + '-' + pad(dateInput.getDate());
 		}
 
-		return _momentTimezone2.default.tz((0, _momentTimezone2.default)(dateToParse, formats.api).format(formats.api) + 'T' + time, formats.api + 'T' + formats.time, timezone);
+		return _momentTimezone2.default.tz((0, _momentTimezone2.default)(dateToParse, formats.api).format(formats.api) + 'T' + timeInput, formats.api + 'T' + formats.time, timezone);
 	}
 
 	function momentToNativeDate(momentInput) {
@@ -123,6 +129,7 @@ var brightDates = function brightDates() {
 		date: date,
 		dateTime: dateTime,
 		dateAndTime: dateAndTime,
+		time: time,
 		formatDate: formatDate,
 		formatDateTime: formatDateTime,
 		momentToNativeDate: momentToNativeDate,
