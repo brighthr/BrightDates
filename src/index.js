@@ -22,9 +22,7 @@ function arrify(val) {
 }
 
 function joinFormats(selectedFormat) {
-	return arrify(selectedFormat)
-		.map(format => formats[format])
-		.join(' ');
+	return arrify(selectedFormat).map(format => formats[format]).join(' ');
 }
 
 const brightDates = (function brightDates() {
@@ -49,9 +47,7 @@ const brightDates = (function brightDates() {
 		}
 
 		if (dateToParse instanceof Date) {
-			dateToParse = `${dateToParse.getFullYear()}-${pad(
-				dateToParse.getMonth() + 1
-			)}-${pad(dateToParse.getDate())}`;
+			dateToParse = `${dateToParse.getFullYear()}-${pad(dateToParse.getMonth() + 1)}-${pad(dateToParse.getDate())}`;
 		}
 
 		return moment.tz(dateToParse, formats.api, timezone);
@@ -85,7 +81,7 @@ const brightDates = (function brightDates() {
 		return dateTime(dateInput, tz).format(selectedFormat);
 	}
 
-	function dateAndTime(dateInput, time, timezone = userTimezone) {
+	function dateAndTime(dateInput, timeInput, timezone = userTimezone) {
 		let dateToParse = dateInput;
 
 		if (Array.isArray(dateInput)) {
@@ -93,13 +89,11 @@ const brightDates = (function brightDates() {
 		}
 
 		if (dateToParse instanceof Date) {
-			dateToParse = `${dateInput.getFullYear()}-${pad(
-				dateInput.getMonth() + 1
-			)}-${pad(dateInput.getDate())}`;
+			dateToParse = `${dateInput.getFullYear()}-${pad(dateInput.getMonth() + 1)}-${pad(dateInput.getDate())}`;
 		}
 
 		return moment.tz(
-			`${moment(dateToParse, formats.api).format(formats.api)}T${time}`,
+			`${moment(dateToParse, formats.api).format(formats.api)}T${timeInput}`,
 			`${formats.api}T${formats.time}`,
 			timezone
 		);
