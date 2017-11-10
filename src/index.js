@@ -61,6 +61,10 @@ const brightDates = (function brightDates() {
 		return moment.tz(dateTimeInput, timezone);
 	}
 
+	function time(timeInput, timezone = userTimezone) {
+		return moment.tz(timeInput, 'HH:mm', timezone);
+	}
+
 	function formatDate(dateInput, formatInput, tz) {
 		const selectedFormat = joinFormats(formatInput) || null;
 
@@ -136,6 +140,7 @@ const brightDates = (function brightDates() {
 		date,
 		dateTime,
 		dateAndTime,
+		time,
 		formatDate,
 		formatDateTime,
 		momentToNativeDate,
