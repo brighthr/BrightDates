@@ -3,6 +3,7 @@ import moment from 'moment-timezone';
 const formats = {
 	api: 'YYYY-MM-DD',
 	apiOffsetDateTime: 'YYYY-MM-DDTHH:mm:ssZ',
+	apiLocalDateTime: 'YYYY-MM-DDTHH:mm:ss',
 	short: 'DD/MM/YYYY',
 	friendly: 'dddd DD MMMM YYYY',
 	friendlyShort: 'ddd DD MMM',
