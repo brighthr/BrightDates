@@ -71,6 +71,10 @@ var brightDates = function brightDates() {
 		return _momentTimezone2.default.tz(dateTimeInput, timezone);
 	}
 
+	function localDateTime(dateTimeInput) {
+		return (0, _momentTimezone2.default)(dateTimeInput);
+	}
+
 	function time(timeInput) {
 		var timezone = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : userTimezone;
 
@@ -95,6 +99,16 @@ var brightDates = function brightDates() {
 		}
 
 		return dateTime(dateInput, tz).format(selectedFormat);
+	}
+
+	function formatLocalDateTime(dateInput, formatInput) {
+		var selectedFormat = joinFormats(formatInput) || null;
+
+		if (formatInput && !selectedFormat) {
+			throw new Error('Unrecognised format: ' + formatInput);
+		}
+
+		return localDateTime(dateInput).format(selectedFormat);
 	}
 
 	function dateAndTime(dateInput, timeInput) {
@@ -131,6 +145,8 @@ var brightDates = function brightDates() {
 		date: date,
 		dateTime: dateTime,
 		dateAndTime: dateAndTime,
+		localDateTime: localDateTime,
+		formatLocalDateTime: formatLocalDateTime,
 		time: time,
 		formatDate: formatDate,
 		formatDateTime: formatDateTime,

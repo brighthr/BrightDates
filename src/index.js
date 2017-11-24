@@ -87,6 +87,16 @@ const brightDates = (function brightDates() {
 		return dateTime(dateInput, tz).format(selectedFormat);
 	}
 
+	function formatLocalDateTime(dateInput, formatInput) {
+		const selectedFormat = joinFormats(formatInput) || null;
+
+		if (formatInput && !selectedFormat) {
+			throw new Error(`Unrecognised format: ${formatInput}`);
+		}
+
+		return localDateTime(dateInput).format(selectedFormat);
+	}
+
 	function dateAndTime(dateInput, timeInput, timezone = userTimezone) {
 		let dateToParse = dateInput;
 
@@ -141,6 +151,7 @@ const brightDates = (function brightDates() {
 		dateTime,
 		dateAndTime,
 		localDateTime,
+		formatLocalDateTime,
 		time,
 		formatDate,
 		formatDateTime,
