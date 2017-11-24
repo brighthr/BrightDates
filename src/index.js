@@ -59,6 +59,10 @@ const brightDates = (function brightDates() {
 		return moment.tz(dateTimeInput, timezone);
 	}
 
+	function localDateTime(dateTimeInput) {
+		return moment(dateTimeInput);
+	}
+
 	function time(timeInput, timezone = userTimezone) {
 		return moment.tz(timeInput, 'HH:mm', timezone);
 	}
@@ -136,6 +140,7 @@ const brightDates = (function brightDates() {
 		date,
 		dateTime,
 		dateAndTime,
+		localDateTime,
 		time,
 		formatDate,
 		formatDateTime,
