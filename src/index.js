@@ -41,8 +41,10 @@ const brightDates = (function brightDates() {
 		return userTimezone;
 	}
 
-	function date(dateInput, timezone = userTimezone) {
-		let dateToParse = dateInput || moment.tz(timezone).format(formats.api);
+	function date(dateInput = undefined, timezone = userTimezone) {
+		let dateToParse = dateInput === undefined
+			? moment.tz(undefined, timezone).format(formats.api)
+			: dateInput;
 
 		if (Array.isArray(dateInput)) {
 			return moment.tz(dateInput.slice(0, 3), timezone);
