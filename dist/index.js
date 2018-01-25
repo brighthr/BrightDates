@@ -49,10 +49,11 @@ var brightDates = function brightDates() {
 		return userTimezone;
 	}
 
-	function date(dateInput) {
+	function date() {
+		var dateInput = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : undefined;
 		var timezone = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : userTimezone;
 
-		var dateToParse = dateInput || _momentTimezone2.default.tz(timezone).format(formats.api);
+		var dateToParse = dateInput === undefined ? _momentTimezone2.default.tz(undefined, timezone).format(formats.api) : dateInput;
 
 		if (Array.isArray(dateInput)) {
 			return _momentTimezone2.default.tz(dateInput.slice(0, 3), timezone);
