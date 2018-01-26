@@ -140,6 +140,12 @@ var brightDates = function brightDates() {
 		return new Date(momentInput.year(), momentInput.month(), momentInput.date(), momentInput.hours(), momentInput.minutes(), momentInput.seconds());
 	}
 
+	function isSame(date1, date2) {
+		var unit = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'day';
+
+		return date(date1).isSame(date(date2), unit);
+	}
+
 	return {
 		setTimezone: setTimezone,
 		getTimezone: getTimezone,
@@ -153,7 +159,8 @@ var brightDates = function brightDates() {
 		formatDateTime: formatDateTime,
 		momentToNativeDate: momentToNativeDate,
 		momentToNativeDateTime: momentToNativeDateTime,
-		momentToNativeUTCDate: momentToNativeUTCDate
+		momentToNativeUTCDate: momentToNativeUTCDate,
+		isSame: isSame
 	};
 }();
 

@@ -146,6 +146,10 @@ const brightDates = (function brightDates() {
 		);
 	}
 
+	function isSame(date1, date2, unit = 'day') {
+		return date(date1).isSame(date(date2), unit);
+	}
+
 	return {
 		setTimezone,
 		getTimezone,
@@ -159,7 +163,8 @@ const brightDates = (function brightDates() {
 		formatDateTime,
 		momentToNativeDate,
 		momentToNativeDateTime,
-		momentToNativeUTCDate
+		momentToNativeUTCDate,
+		isSame
 	};
 })();
 
