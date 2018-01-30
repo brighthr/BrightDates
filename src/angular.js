@@ -2,22 +2,22 @@
 
 import brightDates from './index';
 
-angular.module('brightApp.dateTimeServiceNew', [
-	'brightApp.dateTimeServiceNew.constructor',
-	'brightApp.dateTimeServiceNew.dateFormatFilter',
-	'brightApp.dateTimeServiceNew.dateTimeFormatFilter'
+angular.module('brightApp.brightDates', [
+	'brightApp.brightDates.constructor',
+	'brightApp.brightDates.dateFormatFilter',
+	'brightApp.brightDates.dateTimeFormatFilter'
 ]);
 
 angular
-	.module('brightApp.dateTimeServiceNew.constructor', [])
-	.factory('dateTimeServiceNew', () => brightDates);
+	.module('brightApp.brightDates.constructor', [])
+	.factory('brightDates', () => brightDates);
 
 angular
-	.module('brightApp.dateTimeServiceNew.dateFormatFilter', [])
+	.module('brightApp.brightDates.dateFormatFilter', [])
 	.filter('dateFormat', () => (value, format, timezone) =>
 		brightDates.formatDate(value, format, timezone));
 
 angular
-	.module('brightApp.dateTimeServiceNew.dateTimeFormatFilter', [])
+	.module('brightApp.brightDates.dateTimeFormatFilter', [])
 	.filter('dateTimeFormat', () => (value, format, timezone) =>
 		brightDates.formatDateTime(value, format, timezone));
