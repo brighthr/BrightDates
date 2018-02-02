@@ -8,7 +8,7 @@ const formats = {
 	friendly: 'dddd DD MMMM YYYY',
 	friendlyShort: 'ddd DD MMM',
 	friendlyShortWithYear: 'DD MMM YYYY',
-	dayMonth: 'DD MMM',
+	dayMonth: 'DD MMMM',
 	time: 'HH:mm',
 	timezone: 'zz',
 	offset: 'Z',
