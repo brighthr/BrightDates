@@ -8,7 +8,6 @@ const formats = {
 	friendly: 'dddd DD MMMM YYYY',
 	friendlyShort: 'ddd DD MMM',
 	friendlyShortWithYear: 'DD MMM YYYY',
-	friendlyWithDayOfMonth: 'ddd D MMMM YYYY',
 	dayMonth: 'DD MMMM',
 	time: 'HH:mm',
 	timezone: 'zz',

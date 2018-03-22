@@ -139,28 +139,6 @@ test('"formatDate" should support "monthYear" format with a timezone overide', t
 	);
 });
 
-test('"formatDate" should support "friendlyWithDayOfMonth" format with a timezone overide', t => {
-	t.is(brightDates.getTimezone(), 'Europe/London');
-
-	t.is(
-		brightDates.formatDate(
-			baseDateTime,
-			'friendlyWithDayOfMonth',
-			'Canada/Eastern'
-		),
-		'Fri 17 February 2017'
-	);
-
-	t.is(
-		brightDates.formatDate(
-			baseDateTimeDST,
-			'friendlyWithDayOfMonth',
-			'Canada/Eastern'
-		),
-		'Sat 17 June 2017'
-	);
-});
-
 test('"formatDate" should support "timezone" format', t => {
 	t.is(brightDates.getTimezone(), 'Europe/London');
 
