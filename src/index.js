@@ -13,7 +13,8 @@ const formats = {
 	timezone: 'zz',
 	offset: 'Z',
 	datetime: 'DD/MM/YYYY hh:mm',
-	year: 'YYYY'
+	year: 'YYYY',
+	monthYear: 'MMMM YYYY'
 };
 
 function pad(str) {

@@ -117,16 +117,25 @@ test('"formatDate" should support "friendlyShort" format with a timezone overide
 	t.is(brightDates.getTimezone(), 'Europe/London');
 
 	t.is(
-		brightDates.formatDate(baseDateTime, 'friendlyShort', 'Canada/Eastern'),
-		'Fri 17 Feb'
+		brightDates.formatDate(baseDateTime, 'monthYear', 'Canada/Eastern'),
+		'February 2017'
 	);
 	t.is(
-		brightDates.formatDate(
-			baseDateTimeDST,
-			'friendlyShort',
-			'Canada/Eastern'
-		),
-		'Sat 17 Jun'
+		brightDates.formatDate(baseDateTimeDST, 'monthYear', 'Canada/Eastern'),
+		'June 2017'
+	);
+});
+
+test('"formatDate" should support "monthYear" format with a timezone overide', t => {
+	t.is(brightDates.getTimezone(), 'Europe/London');
+
+	t.is(
+		brightDates.formatDate(baseDateTime, 'monthYear', 'Canada/Eastern'),
+		'February 2017'
+	);
+	t.is(
+		brightDates.formatDate(baseDateTimeDST, 'monthYear', 'Canada/Eastern'),
+		'June 2017'
 	);
 });
 
