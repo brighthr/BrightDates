@@ -148,7 +148,7 @@ test('"formatDate" should support "friendlyWithDayOfMonth" format with a timezon
 			'friendlyWithDayOfMonth',
 			'Canada/Eastern'
 		),
-		'Fri, 17 February 2017'
+		'Fri 17 February 2017'
 	);
 
 	t.is(
@@ -157,7 +157,7 @@ test('"formatDate" should support "friendlyWithDayOfMonth" format with a timezon
 			'friendlyWithDayOfMonth',
 			'Canada/Eastern'
 		),
-		'Sat, 17 June 2017'
+		'Sat 17 June 2017'
 	);
 });
 
