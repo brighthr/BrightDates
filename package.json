@@ -20,7 +20,7 @@
   "license": "ISC",
   "ava": {
     "require": [
-      "babel-core/register"
+      "babel-register"
     ]
   },
   "devDependencies": {
@@ -28,6 +28,7 @@
     "babel-cli": "^6.24.1",
     "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
     "babel-preset-env": "^1.5.1",
+    "babel-register": "^6.26.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-config-prettier": "^2.1.0",
