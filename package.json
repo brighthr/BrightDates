@@ -9,7 +9,7 @@
     "url": "git@github.com:brighthr/BrightDates.git"
   },
   "scripts": {
-    "precommit": "yarn build && git add dist/",
+    "precommit": "yarn eslint . --fix && yarn build && git add dist/",
     "test": "eslint . && nyc -r html ava -v",
     "test:watch": "ava -wv",
     "build": "BABEL_ENV=production babel -d dist/ src/",
