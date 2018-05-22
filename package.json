@@ -10,10 +10,11 @@
   },
   "scripts": {
     "precommit": "yarn eslint . --fix && yarn build && git add .",
-    "test": "eslint . && nyc -r html ava -v",
+    "test": "nyc -r html ava -v",
+    "lint": "eslint .",
     "test:watch": "ava -wv",
     "build": "BABEL_ENV=production babel -d dist/ src/",
-    "prepublish": "npm run build",
+    "prepush": "yarn test",
     "semantic-release": "semantic-release"
   },
   "author": "BrightHR",
