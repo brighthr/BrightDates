@@ -1,19 +1,27 @@
 {
-  "name": "brightdates",
-  "version": "1.0.0",
+  "name": "bright-dates",
+  "private": false,
+  "version": "0.0.0-development",
   "description": "",
   "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:brighthr/BrightDates.git"
+  },
   "scripts": {
-    "test": "eslint . && nyc -r html ava -v",
+    "precommit": "yarn eslint . --fix && yarn build && git add .",
+    "test": "nyc -r html ava -v",
+    "lint": "eslint .",
     "test:watch": "ava -wv",
     "build": "BABEL_ENV=production babel -d dist/ src/",
-    "prepublish": "npm run build"
+    "prepush": "yarn test",
+    "semantic-release": "semantic-release"
   },
   "author": "BrightHR",
   "license": "ISC",
   "ava": {
     "require": [
-      "babel-core/register"
+      "babel-register"
     ]
   },
   "devDependencies": {
@@ -21,6 +29,7 @@
     "babel-cli": "^6.24.1",
     "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
     "babel-preset-env": "^1.5.1",
+    "babel-register": "^6.26.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-config-prettier": "^2.1.0",
@@ -28,9 +37,11 @@
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-prettier": "^2.1.0",
     "eslint-plugin-react": "^7.0.1",
+    "husky": "^0.14.3",
     "lolex": "^1.6.0",
     "nyc": "^10.3.2",
     "prettier": "^1.3.1",
+    "semantic-release": "^15.5.0",
     "supervisor": "^0.12.0"
   },
   "dependencies": {
