@@ -3,14 +3,13 @@ jobs:
   build:
     docker:
       - image: circleci/node:8.9.1-browsers
-        environment:
-          TZ: "/usr/share/zoneinfo/Europe/London"
     steps:
       - checkout
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
+      - run: sudo cp /usr/share/zoneinfo/Europe/London /etc/localtime
       - run: yarn install
       - save_cache:
           paths:
@@ -21,8 +20,6 @@ jobs:
   deploy:
     docker:
       - image: circleci/node:8.9.1-browsers
-        environment:
-          TZ: "/usr/share/zoneinfo/Europe/London"
     steps:
       - checkout
       - run: yarn install
