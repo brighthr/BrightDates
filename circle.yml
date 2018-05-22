@@ -17,7 +17,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: yarn eslint
-      - run: yarn test:coverage
+      - run: yarn test
   deploy:
     docker:
       - image: circleci/node:8.9.1-browsers
@@ -30,7 +30,7 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: npm run semantic-release || true
+      - run: yarn semantic-release || true
 
 workflows:
   version: 2
