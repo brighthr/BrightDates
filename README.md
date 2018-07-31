@@ -2,6 +2,9 @@
 
 Timezone aware date parsing and formatting 
 
+## Test Bench
+There is a live demo on [CodePen](https://codepen.io/ersel/project/editor/DWnMWW) which you can fiddle with. Once the CodePen page loads, open browser's development console and follow the instructions.
+
 ## Methods
 
 **All date and datetime methods accept an optional timezone overide as the last argument**
