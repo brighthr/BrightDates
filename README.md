@@ -94,3 +94,11 @@ Format a string or native date, returns ISO 8601 if no format is specified.
 ```js
 brightDates.formatDateTime('2016-10-13T01:43:00Z', 'time'); // 01:43
 ```
+
+### moment exports
+
+The following utilities from moment are also exported:
+
+- [min()](https://momentjs.com/docs/#/get-set/min/)
+- [max()](https://momentjs.com/docs/#/get-set/max/)
+- [months() and monthsShort()](https://momentjs.com/docs/#/i18n/listing-months-weekdays/)
