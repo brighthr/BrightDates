@@ -148,10 +148,6 @@ var brightDates = function brightDates() {
 		return date(date1).isSame(date(date2), unit);
 	}
 
-	function monthsShort() {
-		return _momentTimezone2.default.monthsShort();
-	}
-
 	return {
 		setTimezone: setTimezone,
 		getTimezone: getTimezone,
@@ -166,8 +162,11 @@ var brightDates = function brightDates() {
 		momentToNativeDate: momentToNativeDate,
 		momentToNativeDateTime: momentToNativeDateTime,
 		momentToNativeUTCDate: momentToNativeUTCDate,
-		monthsShort: monthsShort,
-		isSame: isSame
+		isSame: isSame,
+		min: _momentTimezone2.default.min,
+		max: _momentTimezone2.default.max,
+		months: _momentTimezone2.default.months,
+		monthsShort: _momentTimezone2.default.monthsShort
 	};
 }();
 
