@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8.9.1-browsers
+      - image: circleci/node:10.2.1-browsers
         environment:
           TZ: "/usr/share/zoneinfo/Europe/London"
     steps:
@@ -20,7 +20,7 @@ jobs:
       - run: yarn test
   deploy:
     docker:
-      - image: circleci/node:8.9.1-browsers
+      - image: circleci/node:10.2.1-browsers
         environment:
           TZ: "/usr/share/zoneinfo/Europe/London"
     steps:
