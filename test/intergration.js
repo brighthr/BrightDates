@@ -12,12 +12,18 @@ test('work the same as moment', t => {
 
 	t.is(
 		brightDates.date().format(),
-		moment.tz('Europe/London').startOf('day').format()
+		moment
+			.tz('Europe/London')
+			.startOf('day')
+			.format()
 	);
 
 	t.is(
 		brightDates.date('2018-08-09').format(),
-		moment.tz('2018-08-09', 'Europe/London').startOf('day').format()
+		moment
+			.tz('2018-08-09', 'Europe/London')
+			.startOf('day')
+			.format()
 	);
 
 	t.is(
@@ -27,12 +33,18 @@ test('work the same as moment', t => {
 
 	t.is(
 		brightDates.date(null).format(),
-		moment.tz(null, 'Europe/London').startOf('day').format()
+		moment
+			.tz(null, 'Europe/London')
+			.startOf('day')
+			.format()
 	);
 
 	t.is(
 		brightDates.date(undefined).format(),
-		moment.tz(undefined, 'Europe/London').startOf('day').format()
+		moment
+			.tz(undefined, 'Europe/London')
+			.startOf('day')
+			.format()
 	);
 
 	t.is(
