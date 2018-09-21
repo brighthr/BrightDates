@@ -14,12 +14,12 @@ test('"momentToNativeDate" should return the correct date', t => {
 		brightDates
 			.momentToNativeDate(brightDates.date(baseDateTimeEU))
 			.toString(),
-		'Fri Feb 17 2017 00:00:00 GMT+0000 (GMT)'
+		'Fri Feb 17 2017 00:00:00 GMT+0000 (GMT Standard Time)'
 	);
 	t.is(
 		brightDates
 			.momentToNativeDate(brightDates.date(baseDateTimeCAN))
 			.toString(),
-		'Fri Feb 17 2017 00:00:00 GMT+0000 (GMT)'
+		'Fri Feb 17 2017 00:00:00 GMT+0000 (GMT Standard Time)'
 	);
 });

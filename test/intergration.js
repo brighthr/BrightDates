@@ -45,3 +45,16 @@ test('work the same as moment', t => {
 		moment.tz(undefined, 'Europe/London').format()
 	);
 });
+
+test('exported moment functions', t => {
+	const left = brightDates.date('2018-08-01');
+	const right = brightDates.date('2018-08-02');
+
+	t.is(brightDates.min(left, right), moment.min(left, right));
+
+	t.is(brightDates.max(left, right), moment.max(left, right));
+
+	t.deepEqual(brightDates.months(), moment.months());
+
+	t.deepEqual(brightDates.monthsShort(), moment.monthsShort());
+});

@@ -13,7 +13,7 @@
     "test": "nyc -r html ava -v",
     "lint": "eslint .",
     "test:watch": "ava -wv",
-    "build": "BABEL_ENV=production babel -d dist/ src/",
+    "build": "cross-env BABEL_ENV=production babel -d dist/ src/",
     "prepush": "yarn test",
     "semantic-release": "semantic-release"
   },
@@ -30,6 +30,7 @@
     "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
     "babel-preset-env": "^1.5.1",
     "babel-register": "^6.26.0",
+    "cross-env": "^5.2.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-config-prettier": "^2.1.0",
