@@ -30,7 +30,7 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: yarn semantic-release || true
+      - run: yarn semantic-release
 
 workflows:
   version: 2
