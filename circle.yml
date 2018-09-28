@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8.9.1-browsers
+      - image: circleci/node:10.11.0-jessie-browsers
         environment:
           TZ: "/usr/share/zoneinfo/Europe/London"
     steps:
