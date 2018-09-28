@@ -2,11 +2,10 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10.11.0-jessie-browsers
+      - image: circleci/node:10.2.0
+        environment:
+          TZ: "/usr/share/zoneinfo/Europe/London"
     steps:
-      - run:
-          name: Switch timezone to Melbourne
-          command: sudo cp /usr/share/zoneinfo/Europe/London /etc/localtime
       - checkout
       - restore_cache:
           keys:
