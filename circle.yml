@@ -9,13 +9,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
+          - dependencies-{{ checksum "package.json" }}
       - run: npm install
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: dependencies-{{ checksum "package.json" }}
       - run: npm run lint
       - run: npm run test
   deploy:
@@ -27,7 +26,7 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: dependencies-{{ checksum "package.json" }}
       - run: npm run semantic-release
 
 workflows:
