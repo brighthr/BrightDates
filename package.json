@@ -9,12 +9,12 @@
     "url": "git@github.com:brighthr/BrightDates.git"
   },
   "scripts": {
-    "precommit": "yarn eslint . --fix && yarn build && git add .",
+    "precommit": "npm run lint . --fix && npm run build && git add .",
     "test": "nyc -r html ava -v",
     "lint": "eslint .",
     "test:watch": "ava -wv",
     "build": "cross-env BABEL_ENV=production babel -d dist/ src/",
-    "prepush": "yarn test",
+    "prepush": "npm test",
     "semantic-release": "semantic-release"
   },
   "author": "BrightHR",
