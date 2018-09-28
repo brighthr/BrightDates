@@ -3,9 +3,10 @@ jobs:
   build:
     docker:
       - image: circleci/node:10.11.0-jessie-browsers
-        environment:
-          TZ: "/usr/share/zoneinfo/Europe/London"
     steps:
+      - run:
+          name: Switch timezone to Melbourne
+          command: sudo cp /usr/share/zoneinfo/Europe/London /etc/localtime
       - checkout
       - restore_cache:
           keys:
@@ -20,9 +21,7 @@ jobs:
       - run: npm run test
   deploy:
     docker:
-      - image: circleci/node:8.9.1-browsers
-        environment:
-          TZ: "/usr/share/zoneinfo/Europe/London"
+      - image: circleci/node:10.11.0-jessie-browsers
     steps:
       - checkout
       - run: npm install
