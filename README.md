@@ -101,4 +101,4 @@ The following static methods from moment are also exported:
 
 - [min()](https://momentjs.com/docs/#/get-set/min/)
 - [max()](https://momentjs.com/docs/#/get-set/max/)
-- [months() and monthsShort()](https://momentjs.com/docs/#/i18n/listing-months-weekdays/)
+- [months(), monthsShort(), weekdays(), weekdaysShort(), weekdaysMin()](https://momentjs.com/docs/#/i18n/listing-months-weekdays/)
