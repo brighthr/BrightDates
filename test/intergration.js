@@ -69,4 +69,10 @@ test('exported moment functions', t => {
 	t.deepEqual(brightDates.months(), moment.months());
 
 	t.deepEqual(brightDates.monthsShort(), moment.monthsShort());
+
+	t.deepEqual(brightDates.weekdays(), moment.weekdays());
+
+	t.deepEqual(brightDates.weekdaysShort(), moment.weekdaysShort());
+
+	t.deepEqual(brightDates.weekdaysMin(), moment.weekdaysMin());
 });

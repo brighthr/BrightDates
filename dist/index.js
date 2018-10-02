@@ -166,7 +166,10 @@ var brightDates = function brightDates() {
 		min: _momentTimezone2.default.min,
 		max: _momentTimezone2.default.max,
 		months: _momentTimezone2.default.months,
-		monthsShort: _momentTimezone2.default.monthsShort
+		monthsShort: _momentTimezone2.default.monthsShort,
+		weekdays: _momentTimezone2.default.weekdays,
+		weekdaysShort: _momentTimezone2.default.weekdaysShort,
+		weekdaysMin: _momentTimezone2.default.weekdaysMin
 	};
 }();
 
