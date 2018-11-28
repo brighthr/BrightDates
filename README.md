@@ -84,7 +84,7 @@ brightDates.formatDate('2016-10-13T01:43:00Z', 'short'); // 2016-10-13
 Format a string or native date, returns ISO 8601 if no format is specified.
 
 - short: 'YYYY-MM-DD'
-- friendly: 'ddd Do MMM YYYY'
+- friendly: 'dddd Do MMM YYYY'
 - friendlyShort: 'ddd Do MMM'
 - time: 'hh:mm'
 - timezone: 'zz'
