@@ -15,6 +15,7 @@
     "test:watch": "ava -wv",
     "build": "cross-env BABEL_ENV=production babel -d dist/ src/",
     "prepush": "npm test",
+    "audit": "node audit.js",
     "semantic-release": "semantic-release"
   },
   "author": "BrightHR",
@@ -40,7 +41,7 @@
     "eslint-plugin-react": "^7.0.1",
     "husky": "^0.14.3",
     "lolex": "^1.6.0",
-    "nyc": "^10.3.2",
+    "nyc": "^13.1.0",
     "prettier": "^1.3.1",
     "semantic-release": "^15.5.0",
     "supervisor": "^0.12.0"
