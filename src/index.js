@@ -179,7 +179,10 @@ const brightDates = (function brightDates() {
 		min: moment.min,
 		max: moment.max,
 		months: moment.months,
-		monthsShort: moment.monthsShort
+		monthsShort: moment.monthsShort,
+		weekdays: moment.weekdays,
+		weekdaysShort: moment.weekdaysShort,
+		weekdaysMin: moment.weekdaysMin
 	};
 })();
 

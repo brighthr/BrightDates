@@ -84,7 +84,7 @@ brightDates.formatDate('2016-10-13T01:43:00Z', 'short'); // 2016-10-13
 Format a string or native date, returns ISO 8601 if no format is specified.
 
 - short: 'YYYY-MM-DD'
-- friendly: 'ddd Do MMM YYYY'
+- friendly: 'dddd Do MMM YYYY'
 - friendlyShort: 'ddd Do MMM'
 - time: 'hh:mm'
 - timezone: 'zz'
@@ -101,4 +101,4 @@ The following static methods from moment are also exported:
 
 - [min()](https://momentjs.com/docs/#/get-set/min/)
 - [max()](https://momentjs.com/docs/#/get-set/max/)
-- [months() and monthsShort()](https://momentjs.com/docs/#/i18n/listing-months-weekdays/)
+- [months(), monthsShort(), weekdays(), weekdaysShort(), weekdaysMin()](https://momentjs.com/docs/#/i18n/listing-months-weekdays/)
