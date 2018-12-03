@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10.11.0-jessie-browsers
+      - image: circleci/node:node:10.2.0
         environment:
           TZ: "/usr/share/zoneinfo/Europe/London"
     steps:
@@ -20,7 +20,7 @@ jobs:
       - run: npm run test
   deploy:
     docker:
-      - image: circleci/node:10.11.0-jessie-browser
+      - image: circleci/node:10.2.0
     steps:
       - checkout
       - restore_cache:
