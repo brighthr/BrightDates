@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:node:10.2.0
+      - image: circleci/node:10.2.0
         environment:
           TZ: "/usr/share/zoneinfo/Europe/London"
     steps:
