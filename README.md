@@ -69,14 +69,14 @@ brightDates.today();
 
 Format a string or native date, returns ISO 8601 if no format is specified.
 
-- short: 'YYYY-MM-DD'
+- short: 'DD/MM/YYYY'
 - friendly: 'ddd Do MMM YYYY'
 - friendlyShort: 'ddd Do MMM'
 - timezone: 'zz'
 - offset: 'Z'
 
 ```js
-brightDates.formatDate('2016-10-13T01:43:00Z', 'short'); // 2016-10-13
+brightDates.formatDate('2016-10-13T01:43:00Z', 'short'); // 13/10/2016
 ```
 
 #### brightDates.formatDateTime
