@@ -182,7 +182,8 @@ const brightDates = (function brightDates() {
 		monthsShort: moment.monthsShort,
 		weekdays: moment.weekdays,
 		weekdaysShort: moment.weekdaysShort,
-		weekdaysMin: moment.weekdaysMin
+		weekdaysMin: moment.weekdaysMin,
+		formats
 	};
 })();
 
